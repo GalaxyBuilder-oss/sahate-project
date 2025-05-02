@@ -1,0 +1,76 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.db
+*.log
+
+# Spring Boot specific
+/target/
+/build/
+*.iml
+*.h2.db
+*.p8
+*.keystore
+*.crt
+*.jks
+*.pem
+
+# React specific
+node_modules/
+build/
+dist/
+*.log
+*.env
+*.lock
+npm-debug.log*
+**/bun-lock.*
+
+# MacOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+
+# Eclipse/IntelliJ specific
+.idea/
+*.iml
+*.ipr
+*.iws
+*.class
+*.project
+*.settings/
+
+# Exclude application properties and similar config files from git
+**/src/main/resources/application.properties
+**/src/main/resources/application.yml
+
+
+**/HELP.md
+
+target/
+.mvn/wrapper/maven-wrapper.jar
+**/src/main/**/target/
+**/src/test/
+
+
+### IntelliJ IDEA ###
+**/.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+**/src/main/**/build/
+**/src/test/
+
+### VS Code ###
+**/.vscode/
+
