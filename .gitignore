@@ -1,4 +1,4 @@
-# Java
+# === Java ===
 *.class
 *.jar
 *.war
@@ -6,7 +6,7 @@
 *.db
 *.log
 
-# Spring Boot specific
+# === Spring Boot ===
 /target/
 /build/
 *.iml
@@ -16,61 +16,62 @@
 *.crt
 *.jks
 *.pem
+HELP.md
+.mvn/wrapper/maven-wrapper.jar
 
-# React specific
+# === Exclude sensitive Spring configs (keep out of git) ===
+**/src/main/resources/application.properties
+**/src/main/resources/application.yml
+
+# === React JS ===
 node_modules/
-build/
 dist/
+build/
 *.log
 *.env
 *.lock
 npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 **/bun-lock.*
 
-# MacOS files
-.DS_Store
-
-# Windows files
-Thumbs.db
-
-# Eclipse/IntelliJ specific
+# === IDEs and Editors ===
+# IntelliJ / IDEA
 .idea/
-*.iml
-*.ipr
-*.iws
-*.class
-*.project
-*.settings/
-
-# Exclude application properties and similar config files from git
-**/src/main/resources/application.properties
-**/src/main/resources/application.yml
-
-
-**/HELP.md
-
-target/
-.mvn/wrapper/maven-wrapper.jar
-**/src/main/**/target/
-**/src/test/
-
-
-### IntelliJ IDEA ###
-**/.idea
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+# Eclipse
+.project
+.settings/
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-**/src/main/**/build/
+
+# === System Files ===
+.DS_Store
+Thumbs.db
+
+# === Test/Generated Folders ===
+**/src/main/**/target/
 **/src/test/
+**/src/main/**/build/
 
-### VS Code ###
-**/.vscode/
-
+# === Misc ===
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+logs/
