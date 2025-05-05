@@ -20,8 +20,8 @@ HELP.md
 .mvn/wrapper/maven-wrapper.jar
 
 # === Exclude sensitive Spring configs (keep out of git) ===
-**/src/main/resources/application.properties
-**/src/main/resources/application.yml
+**/application.properties
+**/application.yml
 
 # === React JS ===
 node_modules/
