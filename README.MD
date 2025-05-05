@@ -1,3 +1,4 @@
+# Cloning Project
 cmd buat clone:
 
 frontend-dev :
@@ -9,6 +10,7 @@ backend-dev
 git clone -b frontend-dev https://github.com/GalaxyBuilder-oss/sahate-project/
 ```
 
+# Pushing Project
 cmd buat push:
 
 frontend
