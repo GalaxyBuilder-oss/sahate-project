@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
-import java.time.LocalDateTime;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,13 +13,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductReview {
+public class Shipping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long productId; //Fk to product
-    private Long userId; // Fk to user
-    private Long rating;
-    private String review;
-    private LocalDateTime date;
+    private Long ordersId; // fk to orders
+    private Long courierId; // fk to courier
+    private int ongkir;
+    @Column(name= "shipping_status")
+    private String status;
+    private String shippingAdress;
 }

@@ -18,7 +18,7 @@ public class StoreRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
+    private Long userId; // Fk Users
     private String storeName;
     private String status;
     private LocalDateTime date;

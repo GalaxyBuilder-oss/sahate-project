@@ -18,8 +18,8 @@ public class StoreReview {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long storeId;
-    private Long userId;
+    private Long storeId; // Fk to store
+    private Long userId; // Fk to user
     private Long rating;
     private String review;
     private LocalDateTime date;

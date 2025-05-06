@@ -18,7 +18,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long ordersId;
+    private Long ordersId; // fk orders //
     private Long amount;
     private String status;
     private LocalDateTime date;

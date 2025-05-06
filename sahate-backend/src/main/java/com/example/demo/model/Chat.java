@@ -20,8 +20,8 @@ public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long senderId;
-    private Long receiverId ;
+    private Long senderId; // Fk to user
+    private Long receiverId ; // Fk to user
     private String pesan;
     @Column(name = "send_date_time")
     private LocalDateTime sendDateTime;

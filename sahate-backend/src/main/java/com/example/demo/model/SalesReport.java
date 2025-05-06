@@ -18,7 +18,7 @@ public class SalesReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long storeId;
+    private Long storeId; // Fk stores //
     private LocalDateTime date;
     private Integer totalSales;
     private Integer totalProfit;
