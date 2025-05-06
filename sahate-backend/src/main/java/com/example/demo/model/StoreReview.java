@@ -24,10 +24,10 @@ public class StoreReview {
     @ManyToOne
     @JoinColumn(name = "store_id", nullable = false)
     private Store store;
-    
+
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;  
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;  
 
     private Long rating;
     private String review;
