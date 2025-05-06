@@ -21,7 +21,9 @@ public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String message;
+
 
     @Column(name = "send_date_time")
     private LocalDateTime sendDateTime;
