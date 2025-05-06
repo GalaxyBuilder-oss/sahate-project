@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Customer {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -33,8 +35,10 @@ public class Customer {
     @Column(name = "address")
     private String address;
 
-    @Column(name="number_phone")
+    @Column(name = "number_phone")
     private String numberPhone;
 
-    // user id FK
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,4 +25,12 @@ public class OrderDetail {
 
     @Column(name = "unit_price")
     private Integer unitPrice;
+
+    @ManyToMany
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    @ManyToMany
+    @JoinColumn(name = "product_detail_id", nullable = false)
+    private ProductDetail productDetail;
 }
