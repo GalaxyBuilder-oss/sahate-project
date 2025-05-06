@@ -1,13 +1,20 @@
-
+import NavigationComponent from "./components/NavigationComponent.jsx";
+import FooterComponent from "./components/FooterComponent.jsx";
+import {Outlet} from "react-router-dom";
+import SahateProvider from "./contexts/SahateProvider.jsx";
 
 function App() {
-  
-
-  return (
-    <h1 class="text-3xl font-bold underline size-2.5 ">
-    Check
-  </h1>
-  )
+    return (
+        <>
+            <SahateProvider>
+                <NavigationComponent/>
+                <main className={"w-full"}>
+                    <Outlet/>
+                </main>
+                <FooterComponent/>
+            </SahateProvider>
+        </>
+    )
 }
 
 export default App
