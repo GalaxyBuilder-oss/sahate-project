@@ -33,4 +33,5 @@ public class OrderDetail {
     @ManyToMany
     @JoinColumn(name = "product_detail_id", nullable = false)
     private ProductDetail productDetail;
+    // butuh koreksi
 }
