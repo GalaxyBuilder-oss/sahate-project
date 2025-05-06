@@ -22,7 +22,7 @@ public class Chat {
     private Long id;
     private Long senderId; // Fk to user
     private Long receiverId ; // Fk to user
-    private String pesan;
+    private String message;
     @Column(name = "send_date_time")
     private LocalDateTime sendDateTime;
 }
