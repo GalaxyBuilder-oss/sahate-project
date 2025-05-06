@@ -9,23 +9,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Shipping {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String email;
-
-    private String password;
-    
-    @Column(name = "verification_status")
-    private boolean status = false;
-
-
-
+    private Long ordersId; // fk to orders
+    private Long courierId; // fk to courier
+    private int ongkir;
+    @Column(name= "shipping_status")
+    private String status;
+    private String shippingAdress;
 }

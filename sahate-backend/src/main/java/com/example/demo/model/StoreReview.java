@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Column;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,23 +10,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class StoreReview {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String email;
-
-    private String password;
-    
-    @Column(name = "verification_status")
-    private boolean status = false;
-
-
-
+    private Long storeId; // Fk to store
+    private Long userId; // Fk to user
+    private Long rating;
+    private String review;
+    private LocalDateTime date;
 }
