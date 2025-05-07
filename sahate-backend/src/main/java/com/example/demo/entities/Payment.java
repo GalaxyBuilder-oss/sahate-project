@@ -1,37 +1,31 @@
-package com.example.demo.model;
+package com.example.demo.entities;
 
-import jakarta.persistence.Column;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@AllArgsConstructor
+@Entity
 @NoArgsConstructor
-public class OrderDetail {
+@AllArgsConstructor
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
+    private Long amount;
+    private String status;
+    private LocalDateTime date;
 
-    private Integer qty;
-
-    @Column(name = "unit_price")
-    private Integer unitPrice;
-
-    @ManyToMany
+    // fk orders //
+    @OneToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
-
-    @ManyToMany
-    @JoinColumn(name = "product_detail_id", nullable = false)
-    private ProductDetail productDetail;
-    // butuh koreksi
 }

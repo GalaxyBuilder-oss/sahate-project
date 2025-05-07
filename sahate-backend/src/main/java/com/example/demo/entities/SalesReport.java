@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.entities;
 
 import java.time.LocalDateTime;
 
@@ -16,23 +16,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class StoreReview {
+public class SalesReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "store_id", nullable = false)
-    private Store store;
+    private Store store;    
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customer;  
-
-    private Long rating;
-    private String review;
     private LocalDateTime date;
-
-
-
+    private Integer totalSales;
+    private Integer totalProfit;
 }
