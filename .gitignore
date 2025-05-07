@@ -25,6 +25,7 @@ dist/
 *.env
 *.lock
 npm-debug.log*
+*/package-lock.*
 **/bun-lock.*
 
 # MacOS files
