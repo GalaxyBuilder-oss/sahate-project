@@ -29,7 +29,7 @@ public class Shipping {
     @JoinColumn(name = "expedition_id", nullable = false)
     private Expedition expedition;
     
-    private int ongkir;
+    private Integer postage;
     @Column(name = "shipping_status")
     private String status;
     private String shippingAdress;
