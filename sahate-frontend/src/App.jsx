@@ -1,20 +1,20 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import ProductDetail from "./pages/ProductDetail";
-import Cart from "./pages/Cart";
-import Login from "./pages/Login";
+import NavigationComponent from "./components/NavigationComponent.jsx";
+import FooterComponent from "./components/FooterComponent.jsx";
+import {Outlet} from "react-router-dom";
+import SahateProvider from "./contexts/SahateProvider.jsx";
 
-export default function App() {
-  return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
-  );
+function App() {
+    return (
+        <>
+            <SahateProvider>
+                <NavigationComponent/>
+                <main className={"w-full"}>
+                    <Outlet/>
+                </main>
+                <FooterComponent/>
+            </SahateProvider>
+        </>
+    )
 }
+
+export default App
