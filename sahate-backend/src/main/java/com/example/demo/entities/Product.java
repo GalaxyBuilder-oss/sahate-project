@@ -1,6 +1,4 @@
-package com.example.demo.model;
-
-import java.time.LocalDateTime;
+package com.example.demo.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,31 +15,26 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "delivery_status")
-    private String deliveryStatus;
+    @Column(name = "product_name")
+    private String productName;
 
-    @Column(name = "total_price")
-    private Integer totalPrice;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "payment_method")
-    private String paymentMethod;
+    @Column(name = "weight")
+    private Integer weight;
 
-    @Column(name = "purchase_date")
-    private LocalDateTime purchaseDate;
+    @Column(name = "cover_image")
+    private String coverImage;
 
-    //buyer id FK (Users)
-    // store id FK (Users)
-    @ManyToOne
-    @JoinColumn(name = "buyer_id", nullable = false)
-    private Customer buyer;
-
-    @ManyToOne
+    // store id FK
+    @OneToOne
     @JoinColumn(name = "store_id", nullable = false)
     private Store store;
 }

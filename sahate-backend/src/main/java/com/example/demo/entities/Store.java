@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,28 +15,29 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDetail {
+public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "qty")
-    private Integer qty;
+    @Column(name = "store_name")
+    private String storeName;
 
-    @Column(name = "price")
-    private Integer price;
+    @Column(name = "store_address")
+    private String storeAddress;
 
-    // product id , color id , size id FK
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "access_status")
+    private String accessStatus;
+
+    @Column(name = "total_profit")
+    private Integer totalProfit;
+
     @OneToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-    @OneToOne
-    @JoinColumn(name = "color_id", nullable = false)
-    private Color color;
-
-    @OneToOne
-    @JoinColumn(name = "size_id", nullable = false)
-    private Size size;
 }

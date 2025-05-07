@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.entities;
 
 import java.time.LocalDateTime;
 
@@ -7,26 +7,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
-public class StoreRequest {
+@AllArgsConstructor
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId; // Fk Users
-    private String storeName;
+    private Long amount;
     private String status;
     private LocalDateTime date;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
+    // fk orders //
+    @OneToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
 }

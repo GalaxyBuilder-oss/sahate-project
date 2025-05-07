@@ -1,7 +1,8 @@
-package com.example.demo.model;
+package com.example.demo.entities;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,16 +17,23 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class SalesReport {
+public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "store_id", nullable = false)
-    private Store store;    
+    private String message;
 
-    private LocalDateTime date;
-    private Integer totalSales;
-    private Integer totalProfit;
+
+    @Column(name = "send_date_time")
+    private LocalDateTime sendDateTime;
+
+    @ManyToOne
+    @JoinColumn(name = "sender_id", nullable = false)
+    private User sender;
+
+    @ManyToOne
+    @JoinColumn(name = "receiver_id", nullable = false)
+    private User receiver;
+
 }

@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,19 +13,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Size {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    private String email;
-
-    private String password;
-    
-    @Column(name = "verification_status")
-    private boolean status = false;
-
-
+    private String size;
 
 }
