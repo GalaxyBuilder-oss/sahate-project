@@ -1,11 +1,9 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.CartReqDto;
-import com.example.demo.dto.CartResDto;
+import java.util.List;
+
 import com.example.demo.dto.CustomerReqDto;
 import com.example.demo.dto.CustomerResDto;
-
-import java.util.List;
 
 public interface CustomerService {
     CustomerResDto create(CustomerReqDto dto);

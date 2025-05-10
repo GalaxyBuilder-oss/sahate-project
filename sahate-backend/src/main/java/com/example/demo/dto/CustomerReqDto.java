@@ -1,12 +1,8 @@
 package com.example.demo.dto;
 
-import com.example.demo.entities.User;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDate;
+
+import lombok.Data;
 
 @Data
 public class CustomerReqDto {

@@ -1,17 +1,17 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.CustomerReqDto;
-import com.example.demo.dto.CustomerResDto;
-import com.example.demo.entities.Customer;
-import com.example.demo.entities.User;
-import com.example.demo.repositories.CustomerRepository;
-import com.example.demo.repositories.UserRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import com.example.demo.dto.CustomerReqDto;
+import com.example.demo.dto.CustomerResDto;
+import com.example.demo.entities.Customer;
+import com.example.demo.repositories.CustomerRepository;
+import com.example.demo.repositories.UserRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -46,7 +46,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     private Customer fromDto(CustomerReqDto dto) throws RuntimeException {
         Customer customer = new Customer();
-        User user = new User();
         customer.setName(dto.getName());
         customer.setPlaceBirth(dto.getPlaceBirth());
         customer.setTimeBirth(dto.getTimeBirth());
