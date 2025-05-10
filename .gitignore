@@ -21,11 +21,12 @@
 node_modules/
 build/
 dist/
-*.log
+**/*.log
 *.env
-*.lock
+**/*.lock
 npm-debug.log*
-**/bun-lock.*
+*-lock.json
+
 
 # MacOS files
 .DS_Store
@@ -35,6 +36,7 @@ Thumbs.db
 
 # Eclipse/IntelliJ specific
 .idea/
+**/.idea/
 *.iml
 *.ipr
 *.iws
@@ -43,14 +45,14 @@ Thumbs.db
 *.settings/
 
 # Exclude application properties and similar config files from git
-**/src/main/resources/application.properties
-**/src/main/resources/application.yml
+**/application.properties
+**/application.yml
 
 
 **/HELP.md
 
 target/
-.mvn/wrapper/maven-wrapper.jar
+**/.mvn/wrapper/maven-wrapper.jar
 **/src/main/**/target/
 **/src/test/
 
@@ -74,3 +76,5 @@ build/
 ### VS Code ###
 **/.vscode/
 
+## frontend
+sahate-frontend/
