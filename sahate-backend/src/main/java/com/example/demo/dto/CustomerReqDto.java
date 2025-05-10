@@ -15,5 +15,5 @@ public class CustomerReqDto {
     private LocalDate timeBirth;
     private String address;
     private String numberPhone;
-    private Long user_id;
+    private Long userId;
 }

@@ -10,7 +10,7 @@ public class ChatResDto {
     private Long id;
     private String message;
     private LocalDateTime sendDateTime;
-    private Long sender_id;
-    private Long receiver_id;
+    private Long senderId;
+    private Long receiverId;
 
 }
