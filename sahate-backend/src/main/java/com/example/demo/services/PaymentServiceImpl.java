@@ -39,7 +39,7 @@ public class PaymentServiceImpl implements PaymentService {
         try {
             Payment payment = paymentRepository.findById(id).orElse(null);
             if (payment == null) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Order not found");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Payment not found");
             }
             payment.setDate(dto.getDate());
             payment.setStatus(dto.getStatus());
