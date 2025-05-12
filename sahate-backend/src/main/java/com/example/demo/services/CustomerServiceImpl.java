@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
             Customer customer = fromDto(dto);
             return toDto(customerRepository.save(customer));
         } catch (RuntimeException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ada yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 
@@ -70,7 +70,7 @@ public class CustomerServiceImpl implements CustomerService {
             customer.setUser(userRepository.findById(dto.getUserId()).orElse(null));
             return toDto(customerRepository.save(customer));
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ada yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 
@@ -79,7 +79,7 @@ public class CustomerServiceImpl implements CustomerService {
         try {
             customerRepository.deleteById(id);
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ada yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 
@@ -92,7 +92,7 @@ public class CustomerServiceImpl implements CustomerService {
             }
             return toDto(customer);
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ada yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 

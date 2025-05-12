@@ -1,15 +1,16 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.ExpeditionReqDto;
-import com.example.demo.dto.ExpeditionResDto;
-import com.example.demo.entities.Expedition;
-import com.example.demo.repositories.ExpeditionRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import com.example.demo.dto.ExpeditionReqDto;
+import com.example.demo.dto.ExpeditionResDto;
+import com.example.demo.entities.Expedition;
+import com.example.demo.repositories.ExpeditionRepository;
 
 @Service
 public class ExpeditionServiceImpl implements ExpeditionService {
@@ -50,7 +51,7 @@ public class ExpeditionServiceImpl implements ExpeditionService {
             expedition.setName(dto.getName());
             return toDto(expeditionRepository.save(expedition));
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Ada Yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"There is something wrong", e);
         }
     }
 
@@ -59,7 +60,7 @@ public class ExpeditionServiceImpl implements ExpeditionService {
         try {
             expeditionRepository.deleteById(id);
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Ada Yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"There is something wrong", e);
         }
     }
 
@@ -72,7 +73,7 @@ public class ExpeditionServiceImpl implements ExpeditionService {
             }
             return toDto(expedition);
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Ada Yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"There is something wrong", e);
         }
     }
 

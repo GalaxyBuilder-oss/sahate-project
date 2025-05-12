@@ -1,18 +1,19 @@
 package com.example.demo.services;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.example.demo.dto.ChatReqDto;
 import com.example.demo.dto.ChatResDto;
 import com.example.demo.entities.Chat;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.ChatRepository;
 import com.example.demo.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class ChatServiceImpl implements ChatService {
@@ -29,7 +30,7 @@ public class ChatServiceImpl implements ChatService {
             Chat chat = fromDto(dto);
             return toDto(chatRepository.save(chat));
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Ada yang salah",e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"There is something wrong",e);
         }
     }
 
@@ -64,7 +65,7 @@ public class ChatServiceImpl implements ChatService {
             chat.setMessage(dto.getMessage());
             return toDto(chatRepository.save(chat));
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ada yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 
@@ -73,7 +74,7 @@ public class ChatServiceImpl implements ChatService {
         try {
             chatRepository.deleteById(id);
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ada yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 
@@ -86,7 +87,7 @@ public class ChatServiceImpl implements ChatService {
             }
             return toDto(chat);
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ada yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 

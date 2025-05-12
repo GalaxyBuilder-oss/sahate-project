@@ -1,5 +1,12 @@
 package com.example.demo.services;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.example.demo.dto.CartReqDto;
 import com.example.demo.dto.CartResDto;
 import com.example.demo.entities.Cart;
@@ -8,12 +15,6 @@ import com.example.demo.entities.User;
 import com.example.demo.repositories.CartRepository;
 import com.example.demo.repositories.ProductDetailRepository;
 import com.example.demo.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.util.List;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -33,7 +34,7 @@ public class CartServiceImpl implements CartService {
             Cart cart = fromDto(dto);
             return toDto(cartRepository.save(cart));
         } catch (RuntimeException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Ada Yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"There is something wrong", e);
         }
     }
 
@@ -74,7 +75,7 @@ public class CartServiceImpl implements CartService {
         try {
             cartRepository.deleteById(id);
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Ada Yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"There is something wrong", e);
         }
     }
 
@@ -87,7 +88,7 @@ public class CartServiceImpl implements CartService {
             }
             return toDto(cart);
         } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Ada Yang salah", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"There is something wrong", e);
         }
     }
 

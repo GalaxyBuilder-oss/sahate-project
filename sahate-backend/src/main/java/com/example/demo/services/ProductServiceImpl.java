@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.ProductReqDto;
@@ -12,6 +13,7 @@ import com.example.demo.entities.Product;
 import com.example.demo.repositories.ProductRepository;
 import com.example.demo.repositories.StoreRepository;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
