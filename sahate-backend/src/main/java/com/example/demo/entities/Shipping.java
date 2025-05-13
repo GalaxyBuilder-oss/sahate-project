@@ -1,13 +1,6 @@
 package com.example.demo.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Shipping {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,13 +18,16 @@ public class Shipping {
     @OneToOne
     @JoinColumn(name = "orders_id", nullable = false)
     private Order order;
-    
-    @OneToMany
+
+    @ManyToOne
     @JoinColumn(name = "expedition_id", nullable = false)
     private Expedition expedition;
-    
+
     private Integer postage;
+
     @Column(name = "shipping_status")
     private String status;
-    private String shippingAdress;
+
+    @Column(name = "shipping_address")
+    private String shippingAddress;
 }

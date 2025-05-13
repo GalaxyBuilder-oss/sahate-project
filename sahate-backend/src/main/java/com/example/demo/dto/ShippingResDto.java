@@ -6,7 +6,7 @@ public class ShippingResDto {
     private Long id;
     private Long orderId;
     private Long expeditionId;
-    private int ongkir;
+    private int postage;
     private String status;
-    private String shippingAdress;
+    private String shippingAddress;
 }
