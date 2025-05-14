@@ -42,7 +42,7 @@ public class OrderController {
         }
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             orderService.delete(id);
