@@ -6,7 +6,7 @@ import lombok.Data;
 public class ProductDetailResDto {
     private Long id;
     private Integer qty;
-    private Integer unitPrice;
+    private Integer price;
     private Long productId;
     private Long colorId;
     private Long sizeId;

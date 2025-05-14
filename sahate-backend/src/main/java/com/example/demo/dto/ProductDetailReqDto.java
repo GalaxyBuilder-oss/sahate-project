@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ProductDetailReqDto {
     private Integer qty;
-    private Integer unitPrice;
+    private Integer price;
     private Long productId;
     private Long colorId;
     private Long sizeId;
