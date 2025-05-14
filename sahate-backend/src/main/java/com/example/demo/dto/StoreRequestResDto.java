@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import lombok.Data;
 @Data
-public class StoreRequestRes {
+public class StoreRequestResDto {
     private Long id;
     private Long userId; // Fk Users
     private String storeName;

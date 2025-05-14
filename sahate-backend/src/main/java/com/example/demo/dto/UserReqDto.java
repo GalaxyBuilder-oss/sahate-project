@@ -3,8 +3,7 @@ package com.example.demo.dto;
 import lombok.Data;
 
 @Data
-public class UserRes {
-    private Long id;
+public class UserReqDto {
     private String email;
     private String password;
     private boolean status;
