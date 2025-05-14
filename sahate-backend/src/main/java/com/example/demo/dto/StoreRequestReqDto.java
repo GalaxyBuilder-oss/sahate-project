@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
-public class StoreReviewRes {
+public class StoreRequestReqDto {
     private Long id;
-    private Long rating;
-    private String review;
+    private Long userId; 
+    private String storeName;
+    private String status;
     private LocalDateTime date;
-    private Long storeId;
-    private Long customerId;
+    
 }

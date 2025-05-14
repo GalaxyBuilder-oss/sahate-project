@@ -3,8 +3,10 @@ package com.example.demo.dto;
 import java.time.LocalDateTime;
 
 import lombok.Data;
+
 @Data
-public class StoreReviewReq {
+public class StoreReviewResDto {
+    private Long id;
     private Long rating;
     private String review;
     private LocalDateTime date;
