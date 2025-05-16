@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.ProductReviewReqDto;
-import com.example.demo.dto.ProductReviewResDto;
+import com.example.demo.dto.product.ProductReviewReqDto;
+import com.example.demo.dto.product.ProductReviewResDto;
 import com.example.demo.entities.Customer;
 import com.example.demo.entities.Product;
 import com.example.demo.entities.ProductReview;

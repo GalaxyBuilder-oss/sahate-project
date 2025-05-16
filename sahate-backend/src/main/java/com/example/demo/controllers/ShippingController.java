@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.ShippingReqDto;
+import com.example.demo.dto.order.ShippingReqDto;
 import com.example.demo.services.ShippingService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;

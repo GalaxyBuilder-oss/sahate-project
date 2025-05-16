@@ -2,8 +2,8 @@ package com.example.demo.services;
 
 import java.util.List;
 
-import com.example.demo.dto.ColorReqDto;
-import com.example.demo.dto.ColorResDto;
+import com.example.demo.dto.product.ColorReqDto;
+import com.example.demo.dto.product.ColorResDto;
 
 public interface ColorService {
     ColorResDto create(ColorReqDto dto);

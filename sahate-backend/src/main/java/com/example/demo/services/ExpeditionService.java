@@ -1,8 +1,9 @@
 package com.example.demo.services;
 
 import java.util.List;
-import com.example.demo.dto.ExpeditionReqDto;
-import com.example.demo.dto.ExpeditionResDto;
+
+import com.example.demo.dto.store.ExpeditionReqDto;
+import com.example.demo.dto.store.ExpeditionResDto;
 
 public interface ExpeditionService {
     ExpeditionResDto create(ExpeditionReqDto dto);

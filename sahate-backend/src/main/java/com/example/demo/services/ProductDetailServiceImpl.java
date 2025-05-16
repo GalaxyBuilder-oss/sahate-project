@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.ProductDetailReqDto;
-import com.example.demo.dto.ProductDetailResDto;
+import com.example.demo.dto.product.ProductDetailReqDto;
+import com.example.demo.dto.product.ProductDetailResDto;
 import com.example.demo.entities.Color;
 import com.example.demo.entities.Product;
 import com.example.demo.entities.ProductDetail;

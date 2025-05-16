@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.SizeReqDto;
+import com.example.demo.dto.product.SizeReqDto;
 import com.example.demo.services.SizeService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;

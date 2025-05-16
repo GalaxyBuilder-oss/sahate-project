@@ -1,9 +1,9 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.CartReqDto;
-import com.example.demo.dto.CartResDto;
-
 import java.util.List;
+
+import com.example.demo.dto.store.CartReqDto;
+import com.example.demo.dto.store.CartResDto;
 
 public interface CartService {
     CartResDto create(CartReqDto dto);

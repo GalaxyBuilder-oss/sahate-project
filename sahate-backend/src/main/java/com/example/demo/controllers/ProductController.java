@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.ProductReqDto;
+import com.example.demo.dto.product.ProductReqDto;
 import com.example.demo.services.ProductService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;

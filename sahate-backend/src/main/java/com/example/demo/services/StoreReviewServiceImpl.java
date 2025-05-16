@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.example.demo.dto.StoreReviewReqDto;
-import com.example.demo.dto.StoreReviewResDto;
+import com.example.demo.dto.store.StoreReviewReqDto;
+import com.example.demo.dto.store.StoreReviewResDto;
 import com.example.demo.entities.StoreReview;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.repositories.StoreRepository;
