@@ -2,8 +2,8 @@ package com.example.demo.services;
 
 import java.util.List;
 
-import com.example.demo.dto.ProductReqDto;
-import com.example.demo.dto.ProductResDto;
+import com.example.demo.dto.product.ProductReqDto;
+import com.example.demo.dto.product.ProductResDto;
 
 public interface ProductService {
     ProductResDto create(ProductReqDto dto);

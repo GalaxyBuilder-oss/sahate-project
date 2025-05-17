@@ -7,8 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.example.demo.dto.CartReqDto;
-import com.example.demo.dto.CartResDto;
+import com.example.demo.dto.store.CartReqDto;
+import com.example.demo.dto.store.CartResDto;
 import com.example.demo.entities.Cart;
 import com.example.demo.entities.ProductDetail;
 import com.example.demo.entities.User;

@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.ProductReviewReqDto;
-import com.example.demo.dto.ProductReviewResDto;
+import com.example.demo.dto.product.ProductReviewReqDto;
+import com.example.demo.dto.product.ProductReviewResDto;
 
 import java.util.List;
 

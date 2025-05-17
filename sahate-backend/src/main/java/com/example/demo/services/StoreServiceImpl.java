@@ -6,8 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.example.demo.dto.StoreReqDto;
-import com.example.demo.dto.StoreResDto;
+import com.example.demo.dto.store.StoreReqDto;
+import com.example.demo.dto.store.StoreResDto;
 import com.example.demo.entities.Store;
 import com.example.demo.repositories.StoreRepository;
 

@@ -2,8 +2,8 @@ package com.example.demo.services;
 
 import java.util.List;
 
-import com.example.demo.dto.CustomerReqDto;
-import com.example.demo.dto.CustomerResDto;
+import com.example.demo.dto.customer.CustomerReqDto;
+import com.example.demo.dto.customer.CustomerResDto;
 
 public interface CustomerService {
     CustomerResDto create(CustomerReqDto dto);

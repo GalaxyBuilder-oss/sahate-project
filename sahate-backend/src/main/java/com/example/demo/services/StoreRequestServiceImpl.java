@@ -3,25 +3,31 @@ package com.example.demo.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
-import com.example.demo.dto.StoreRequestReqDto;
-import com.example.demo.dto.StoreRequestResDto;
+import com.example.demo.dto.store.StoreRequestReqDto;
+import com.example.demo.dto.store.StoreRequestResDto;
 import com.example.demo.entities.StoreRequest;
 import com.example.demo.repositories.StoreRequestRepository;
+import com.example.demo.repositories.UserRepository;
 
 @Service
 public class StoreRequestServiceImpl implements StoreRequestService {
     @Autowired
     private StoreRequestRepository storeRequestRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public StoreRequestResDto create(StoreRequestReqDto dto) {
         try {
             StoreRequest storeRequest = fromDto(dto);
             return toDto(storeRequestRepository.save(storeRequest));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
     
@@ -33,12 +39,12 @@ public class StoreRequestServiceImpl implements StoreRequestService {
                 throw new RuntimeException("Store request not found");
             }
             storeRequest.setStoreName(dto.getStoreName());
-            storeRequest.setUserId(dto.getUserId());
             storeRequest.setStatus(dto.getStatus());
             storeRequest.setDate(dto.getDate());
+            storeRequest.setUser(userRepository.findById(dto.getUserId()).orElse(null));
             return toDto(storeRequestRepository.save(storeRequest));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 
@@ -46,8 +52,8 @@ public class StoreRequestServiceImpl implements StoreRequestService {
     public void delete(Long id) {
         try {
             storeRequestRepository.deleteById(id);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
     @Override
@@ -58,8 +64,8 @@ public class StoreRequestServiceImpl implements StoreRequestService {
                 throw new RuntimeException("Store request not found");
             }
             return toDto(storeRequest);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
     @Override
@@ -68,16 +74,16 @@ public class StoreRequestServiceImpl implements StoreRequestService {
             return storeRequestRepository.findAll().stream()
                     .map(this::toDto)
                     .toList();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 
     private StoreRequest fromDto(StoreRequestReqDto dto) {
-        StoreRequest storeRequest = new StoreRequest();;
+        StoreRequest storeRequest = new StoreRequest();
         storeRequest.setId(dto.getId());
         storeRequest.setStoreName(dto.getStoreName());
-        storeRequest.setUserId(dto.getUserId());
+        storeRequest.setUser(userRepository.findById(dto.getUserId()).orElse(null));
         storeRequest.setStatus(dto.getStatus());
         storeRequest.setDate(dto.getDate());
         return storeRequest;
@@ -87,7 +93,7 @@ public class StoreRequestServiceImpl implements StoreRequestService {
         StoreRequestResDto dto = new StoreRequestResDto();
         dto.setId(save.getId());
         dto.setStoreName(save.getStoreName());
-        dto.setUserId(save.getUserId());
+        dto.setUserId(save.getUser().getId());
         dto.setStatus(save.getStatus());
         dto.setDate(save.getDate());
         return dto;
