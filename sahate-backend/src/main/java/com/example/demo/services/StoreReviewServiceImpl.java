@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.StoreReviewReqDto;
 import com.example.demo.dto.StoreReviewResDto;
@@ -12,6 +13,8 @@ import com.example.demo.repositories.StoreRepository;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.repositories.StoreReviewRepository;
 
+
+@Service
 public class StoreReviewServiceImpl implements StoreReviewService{
     
     

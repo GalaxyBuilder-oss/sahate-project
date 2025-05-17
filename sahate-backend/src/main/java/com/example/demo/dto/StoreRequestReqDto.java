@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class StoreRequestReqDto {
-    private Long id;
+   
     private Long userId; 
     private String storeName;
     private String status;

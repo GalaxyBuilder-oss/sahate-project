@@ -8,6 +8,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +31,8 @@ public class StoreReview {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;  
 
+    @Min(1)
+    @Max(5)
     private Long rating;
     private String review;
     private LocalDateTime date;

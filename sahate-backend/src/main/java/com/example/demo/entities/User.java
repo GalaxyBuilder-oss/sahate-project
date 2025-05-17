@@ -22,6 +22,8 @@ public class User {
     private String email;
 
     private String password;
+
+    private String role;
     
     @Column(name = "verification_status")
     private boolean status = false;
