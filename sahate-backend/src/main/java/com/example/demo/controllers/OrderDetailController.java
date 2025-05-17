@@ -17,7 +17,7 @@ import com.example.demo.services.OrderDetailService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/orderDetail")
+@RequestMapping("/api/order-detail")
 @Tag(name = "Order Detail")
 public class OrderDetailController {
 

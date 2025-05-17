@@ -17,7 +17,7 @@ import com.example.demo.services.ProductService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/product")
 @Tag(name = "Product")
 public class ProductController {
 

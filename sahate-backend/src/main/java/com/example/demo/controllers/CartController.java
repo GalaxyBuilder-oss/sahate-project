@@ -1,7 +1,8 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.CartReqDto;
+import com.example.demo.dto.store.CartReqDto;
 import com.example.demo.services.CartService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @RequestMapping("/api/chart")
+@Tag(name = "Cart")
 public class CartController {
 
     @Autowired
@@ -64,5 +66,5 @@ public class CartController {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-    }   
+    }
 }
