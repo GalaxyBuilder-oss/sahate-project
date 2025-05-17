@@ -1,8 +1,9 @@
 package com.example.demo.controllers;
 
 
-import com.example.demo.dto.StoreReviewReqDto;
-import com.example.demo.dto.StoreReviewResDto;
+
+import com.example.demo.dto.store.StoreReviewReqDto;
+import com.example.demo.dto.store.StoreReviewResDto;
 import com.example.demo.services.StoreReviewService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,7 @@ public class StoreReviewController {
         List<StoreReviewResDto> result = storeReviewService.findAll();
         return ResponseEntity.ok(result);
     }
+
+    
 }
 

@@ -3,8 +3,8 @@ package com.example.demo.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.StoreReqDto;
-import com.example.demo.dto.StoreResDto;
+import com.example.demo.dto.store.StoreReqDto;
+import com.example.demo.dto.store.StoreResDto;
 import com.example.demo.services.StoreService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 

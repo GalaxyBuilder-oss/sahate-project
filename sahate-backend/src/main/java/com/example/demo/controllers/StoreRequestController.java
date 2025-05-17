@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.StoreRequestReqDto;
-import com.example.demo.dto.StoreRequestResDto;
+import com.example.demo.dto.store.StoreRequestReqDto;
+import com.example.demo.dto.store.StoreRequestResDto;
 import com.example.demo.services.StoreRequestServiceImpl;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;

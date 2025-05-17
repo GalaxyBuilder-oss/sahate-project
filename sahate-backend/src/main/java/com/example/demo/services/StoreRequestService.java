@@ -12,6 +12,7 @@ public interface StoreRequestService {
     StoreRequestResDto findById(Long id);
     List<StoreRequestResDto> findAll();
     StoreRequestResDto updateStatus(Long id, String status);
+    
 
     
 } 
