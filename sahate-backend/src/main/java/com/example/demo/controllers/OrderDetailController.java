@@ -15,6 +15,7 @@ import com.example.demo.dto.order.OrderDetailReqDto;
 import com.example.demo.services.OrderDetailService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/order-detail")
@@ -28,7 +29,7 @@ public class OrderDetailController {
     public ResponseEntity<Object> add(@RequestBody OrderDetailReqDto dto) {
         try {
             return ResponseEntity.ok(orderDetailService.create(dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -37,7 +38,7 @@ public class OrderDetailController {
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody OrderDetailReqDto dto) {
         try {
             return ResponseEntity.ok(orderDetailService.update(id, dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -47,7 +48,7 @@ public class OrderDetailController {
         try {
             orderDetailService.delete(id);
             return ResponseEntity.ok().body("Order Detail deleted");
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -56,7 +57,7 @@ public class OrderDetailController {
     public ResponseEntity<Object> findById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(orderDetailService.findById(id));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -65,7 +66,7 @@ public class OrderDetailController {
     public ResponseEntity<Object> findAll() {
         try {
             return ResponseEntity.ok(orderDetailService.findAll());
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

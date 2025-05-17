@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @Slf4j
@@ -21,17 +22,17 @@ public class ChatController {
     public ResponseEntity<Object> getAll() {
         try {
             return ResponseEntity.ok(chatService.findAll());
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-    @GetMapping()
-    public ResponseEntity<Object> getById(@RequestParam Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(chatService.findById(id));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -41,28 +42,28 @@ public class ChatController {
     public ResponseEntity<Object> create(@RequestBody ChatReqDto dto) {
         try {
             return ResponseEntity.ok(chatService.create(dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-    @PutMapping()
-    public ResponseEntity<Object> update(@RequestParam Long id, @RequestBody ChatReqDto dto) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ChatReqDto dto) {
         try {
             return ResponseEntity.ok(chatService.update(id, dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-    @DeleteMapping()
-    public ResponseEntity<Object> delete(@RequestParam Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             chatService.delete(id);
             return ResponseEntity.ok().build();
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
