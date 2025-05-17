@@ -3,8 +3,8 @@ package com.example.demo.services;
 
 import java.util.List;
 
-import com.example.demo.dto.StoreReqDto;
-import com.example.demo.dto.StoreResDto;
+import com.example.demo.dto.store.StoreReqDto;
+import com.example.demo.dto.store.StoreResDto;
 
 
 public interface StoreService {

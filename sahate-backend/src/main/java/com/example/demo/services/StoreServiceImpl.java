@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.StoreReqDto;
-import com.example.demo.dto.StoreResDto;
+
 import com.example.demo.entities.Store;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.StoreRepository;
@@ -10,6 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.example.demo.dto.StoreReqDto;
+import com.example.demo.dto.StoreResDto;
+import com.example.demo.entities.Store;
+import com.example.demo.repositories.StoreRepository;
 
 import java.util.List;
 

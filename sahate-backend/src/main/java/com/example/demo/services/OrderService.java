@@ -2,8 +2,8 @@ package com.example.demo.services;
 
 import java.util.List;
 
-import com.example.demo.dto.OrderReqDto;
-import com.example.demo.dto.OrderResDto;
+import com.example.demo.dto.order.OrderReqDto;
+import com.example.demo.dto.order.OrderResDto;
 
 public interface OrderService {
     OrderResDto create(OrderReqDto dto);

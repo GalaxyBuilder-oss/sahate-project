@@ -2,15 +2,13 @@ package com.example.demo.services;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import com.example.demo.dto.StoreReviewReqDto;
-import com.example.demo.dto.StoreReviewResDto;
+import com.example.demo.dto.store.StoreReviewReqDto;
+import com.example.demo.dto.store.StoreReviewResDto;
 import com.example.demo.entities.StoreReview;
-import com.example.demo.repositories.StoreRepository;
 import com.example.demo.repositories.CustomerRepository;
+import com.example.demo.repositories.StoreRepository;
 import com.example.demo.repositories.StoreReviewRepository;
 
 
@@ -30,8 +28,8 @@ public class StoreReviewServiceImpl implements StoreReviewService{
         try {
             StoreReview storeReview = fromDto(dto);
             return toDto(storeReviewRepository.save(storeReview));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
     @Override
@@ -47,16 +45,16 @@ public class StoreReviewServiceImpl implements StoreReviewService{
             storeReview.setDate(dto.getDate());
             storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
             return toDto(storeReviewRepository.save(storeReview));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
     @Override
     public void delete(Long id) {
         try {
             storeReviewRepository.deleteById(id);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 
@@ -68,8 +66,8 @@ public class StoreReviewServiceImpl implements StoreReviewService{
                 throw new RuntimeException("Store review not found");
             }
             return toDto(storeReview);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
     @Override
@@ -78,8 +76,8 @@ public class StoreReviewServiceImpl implements StoreReviewService{
             return storeReviewRepository.findAll().stream()
                     .map(this::toDto)
                     .toList();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
 

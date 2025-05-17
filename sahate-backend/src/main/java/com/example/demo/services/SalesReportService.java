@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.SalesReportReqDto;
-import com.example.demo.dto.SalesReportResDto;
+import com.example.demo.dto.store.SalesReportReqDto;
+import com.example.demo.dto.store.SalesReportResDto;
 
 import java.util.List;
 
