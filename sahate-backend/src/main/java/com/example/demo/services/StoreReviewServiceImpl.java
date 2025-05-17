@@ -44,9 +44,9 @@ public class StoreReviewServiceImpl implements StoreReviewService{
             }
             storeReview.setRating(dto.getRating());
             storeReview.setReview(dto.getReview());
-            storeReview.setCustomer(customerRepository.findById(dto.getCustomerId()).orElse(null));
+//            storeReview.setCustomer(customerRepository.findById(dto.getCustomerId()).orElse(null));
             storeReview.setDate(dto.getDate());
-            storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
+//            storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
             return toDto(storeReviewRepository.save(storeReview));
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
@@ -89,9 +89,9 @@ public class StoreReviewServiceImpl implements StoreReviewService{
         
         storeReview.setRating(dto.getRating());
         storeReview.setReview(dto.getReview());
-        storeReview.setCustomer(customerRepository.findById(dto.getCustomerId()).orElse(null));
+//        storeReview.setCustomer(customerRepository.findById(dto.getCustomerId()).orElse(null));
         storeReview.setDate(dto.getDate());
-        storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
+//        storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
         return storeReview;
     } 
 
@@ -102,8 +102,8 @@ public class StoreReviewServiceImpl implements StoreReviewService{
         dto.setRating(storeReview.getRating());
         dto.setReview(storeReview.getReview());
         dto.setDate(storeReview.getDate());
-        dto.setStoreId(storeReview.getStore().getId());
-        dto.setCustomerId(storeReview.getCustomer().getId());
+//        dto.setStoreId(storeReview.getStore().getId());
+//        dto.setCustomerId(storeReview.getCustomer().getId());
         return dto;
     }
 }

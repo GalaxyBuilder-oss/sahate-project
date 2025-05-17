@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/shippings")
+@RequestMapping("/api/shipping")
 @Tag(name = "Shipping")
 @Slf4j
 public class ShippingController {

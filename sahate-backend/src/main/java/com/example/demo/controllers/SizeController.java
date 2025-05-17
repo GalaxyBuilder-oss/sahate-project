@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/sizes")
+@RequestMapping("/api/size")
 @Tag(name = "Size")
 @Slf4j
 public class SizeController {
