@@ -46,8 +46,8 @@ public class OrderServiceImpl implements OrderService {
             order.setDeliveryStatus(dto.getDeliveryStatus());
             order.setPurchaseDate(dto.getPurchaseDate());
             order.setTotalPrice(dto.getTotalPrice());
-            order.setBuyer(customerRepository.findById(dto.getBuyerId()).orElse(null));
-            order.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
+//            order.setBuyer(customerRepository.findById(dto.getBuyerId()).orElse(null));
+//            order.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
             return toDto(orderRepository.save(order));
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
@@ -90,8 +90,8 @@ public class OrderServiceImpl implements OrderService {
         order.setDeliveryStatus(dto.getDeliveryStatus());
         order.setPurchaseDate(dto.getPurchaseDate());
         order.setTotalPrice(dto.getTotalPrice());
-        order.setBuyer(customerRepository.findById(dto.getBuyerId()).orElse(null));
-        order.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
+//        order.setBuyer(customerRepository.findById(dto.getBuyerId()).orElse(null));
+//        order.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
         return order;
     }
 
@@ -102,8 +102,8 @@ public class OrderServiceImpl implements OrderService {
         dto.setDeliveryStatus(save.getDeliveryStatus());
         dto.setPurchaseDate(save.getPurchaseDate());
         dto.setTotalPrice(save.getTotalPrice());
-        dto.setBuyerId(save.getBuyer().getId());
-        dto.setStoreId(save.getStore().getId());
+//        dto.setBuyerId(save.getBuyer().getId());
+//        dto.setStoreId(save.getStore().getId());
         return dto;
     }
 

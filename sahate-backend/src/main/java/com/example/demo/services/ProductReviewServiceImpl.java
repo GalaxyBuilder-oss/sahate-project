@@ -48,8 +48,8 @@ public class ProductReviewServiceImpl implements ProductReviewService {
 
         existing.setRating(dto.getRating());
         existing.setReview(dto.getReview());
-        existing.setProduct(product);
-        existing.setCustomer(customer);
+//        existing.setProduct(product);
+//        existing.setCustomer(customer);
 
         return toDto(productReviewRepository.save(existing));
     }
@@ -83,8 +83,8 @@ public class ProductReviewServiceImpl implements ProductReviewService {
         ProductReview review = new ProductReview();
         review.setRating(dto.getRating());
         review.setReview(dto.getReview());
-        review.setProduct(product);
-        review.setCustomer(customer);
+//        review.setProduct(product);
+//        review.setCustomer(customer);
         return review;
     }
 
@@ -94,8 +94,8 @@ public class ProductReviewServiceImpl implements ProductReviewService {
         dto.setRating(review.getRating());
         dto.setReview(review.getReview());
         dto.setDate(review.getDate());
-        dto.setProductId(review.getProduct().getId());
-        dto.setCustomerId(review.getCustomer().getId());
+//        dto.setProductId(review.getProduct().getId());
+//        dto.setCustomerId(review.getCustomer().getId());
         return dto;
     }
 }
