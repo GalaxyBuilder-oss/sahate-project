@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.store.CartReqDto;
-import com.example.demo.services.CartService;
+import com.example.demo.dto.store.ExpeditionReqDto;
+import com.example.demo.services.ExpeditionService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/cart")
-@Tag(name = "Cart")
-public class CartController {
+@RequestMapping("/api/expedition")
+@Tag(name = "Expedition")
+public class ExpeditionController {
 
     @Autowired
-    private CartService cartService;
+    private ExpeditionService expeditionService;
 
     @GetMapping()
     public ResponseEntity<Object> getAll() {
         try {
-            return ResponseEntity.ok(cartService.findAll());
+            return ResponseEntity.ok(expeditionService.findAll());
         } catch (Exception e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -30,7 +30,7 @@ public class CartController {
     @GetMapping()
     public ResponseEntity<Object> getById(@RequestParam Long id) {
         try {
-            return ResponseEntity.ok(cartService.findById(id));
+            return ResponseEntity.ok(expeditionService.findById(id));
         } catch (Exception e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -38,9 +38,9 @@ public class CartController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> create(@RequestBody CartReqDto dto) {
+    public ResponseEntity<Object> create(@RequestBody ExpeditionReqDto dto) {
         try {
-            return ResponseEntity.ok(cartService.create(dto));
+            return ResponseEntity.ok(expeditionService.create(dto));
         } catch (Exception e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -48,9 +48,9 @@ public class CartController {
     }
 
     @PutMapping()
-    public ResponseEntity<Object> update(@RequestParam Long id, @RequestBody CartReqDto dto) {
+    public ResponseEntity<Object> update(@RequestParam Long id, @RequestBody ExpeditionReqDto dto) {
         try {
-            return ResponseEntity.ok(cartService.update(id, dto));
+            return ResponseEntity.ok(expeditionService.update(id, dto));
         } catch (Exception e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -60,7 +60,7 @@ public class CartController {
     @DeleteMapping()
     public ResponseEntity<Object> delete(@RequestParam Long id) {
         try {
-            cartService.delete(id);
+            expeditionService.delete(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             log.error(e.getMessage());
