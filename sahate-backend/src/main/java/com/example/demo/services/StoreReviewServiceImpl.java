@@ -8,7 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.store.StoreReviewReqDto;
 import com.example.demo.dto.store.StoreReviewResDto;
-import com.example.demo.entities.StoreReview;
+import com.example.demo.entities.store.StoreReview;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.repositories.StoreRepository;
 import com.example.demo.repositories.StoreReviewRepository;

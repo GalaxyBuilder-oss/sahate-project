@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.product.ColorReqDto;
 import com.example.demo.dto.product.ColorResDto;
-import com.example.demo.entities.Color;
+import com.example.demo.entities.product.Color;
 import com.example.demo.repositories.ColorRepository;
 
 @Service

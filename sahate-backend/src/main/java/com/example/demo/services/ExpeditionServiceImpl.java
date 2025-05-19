@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.store.ExpeditionReqDto;
 import com.example.demo.dto.store.ExpeditionResDto;
-import com.example.demo.entities.Expedition;
+import com.example.demo.entities.store.Expedition;
 import com.example.demo.repositories.ExpeditionRepository;
 
 @Service

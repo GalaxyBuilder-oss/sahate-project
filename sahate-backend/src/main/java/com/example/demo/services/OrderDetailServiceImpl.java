@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.order.OrderDetailReqDto;
 import com.example.demo.dto.order.OrderDetailResDto;
-import com.example.demo.entities.OrderDetail;
+import com.example.demo.entities.order.OrderDetail;
 import com.example.demo.repositories.OrderDetailRepository;
 import com.example.demo.repositories.OrderRepository;
 import com.example.demo.repositories.ProductDetailRepository;

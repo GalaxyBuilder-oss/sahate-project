@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.store.PaymentReqDto;
 import com.example.demo.dto.store.PaymentResDto;
-import com.example.demo.entities.Payment;
+import com.example.demo.entities.store.Payment;
 import com.example.demo.repositories.OrderRepository;
 import com.example.demo.repositories.PaymentRepository;
 

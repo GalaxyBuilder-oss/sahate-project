@@ -2,10 +2,10 @@ package com.example.demo.services;
 
 import com.example.demo.dto.product.ProductDetailReqDto;
 import com.example.demo.dto.product.ProductDetailResDto;
-import com.example.demo.entities.Color;
-import com.example.demo.entities.Product;
-import com.example.demo.entities.ProductDetail;
-import com.example.demo.entities.Size;
+import com.example.demo.entities.product.Color;
+import com.example.demo.entities.product.Product;
+import com.example.demo.entities.product.ProductDetail;
+import com.example.demo.entities.product.Size;
 import com.example.demo.repositories.ColorRepository;
 import com.example.demo.repositories.ProductDetailRepository;
 import com.example.demo.repositories.ProductRepository;

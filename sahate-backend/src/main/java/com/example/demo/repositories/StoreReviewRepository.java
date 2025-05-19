@@ -2,7 +2,7 @@ package com.example.demo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.entities.StoreReview;
+import com.example.demo.entities.store.StoreReview;
 
 public interface StoreReviewRepository extends JpaRepository<StoreReview,Long>{
     

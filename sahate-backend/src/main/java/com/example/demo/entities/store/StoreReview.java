@@ -1,6 +1,8 @@
-package com.example.demo.entities;
+package com.example.demo.entities.store;
 
 import java.time.LocalDateTime;
+
+import com.example.demo.entities.customer.Customer;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

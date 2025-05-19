@@ -2,7 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.dto.product.SizeReqDto;
 import com.example.demo.dto.product.SizeResDto;
-import com.example.demo.entities.Size;
+import com.example.demo.entities.product.Size;
 import com.example.demo.repositories.SizeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.example.demo.entities;
+package com.example.demo.entities.product;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,15 +13,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Color {
+public class Size {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String color;
-
-    @Column(name = "product_image")
-    private String productImage;
+    private String size;
 
 }

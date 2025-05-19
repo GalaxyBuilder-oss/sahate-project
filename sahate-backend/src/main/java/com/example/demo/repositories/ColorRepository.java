@@ -2,7 +2,7 @@ package com.example.demo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.entities.Color;
+import com.example.demo.entities.product.Color;
 
 public interface ColorRepository extends JpaRepository<Color, Long> {
     

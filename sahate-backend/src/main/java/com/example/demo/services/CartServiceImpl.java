@@ -9,9 +9,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.store.CartReqDto;
 import com.example.demo.dto.store.CartResDto;
-import com.example.demo.entities.Cart;
-import com.example.demo.entities.ProductDetail;
 import com.example.demo.entities.User;
+import com.example.demo.entities.product.ProductDetail;
+import com.example.demo.entities.store.Cart;
 import com.example.demo.repositories.CartRepository;
 import com.example.demo.repositories.ProductDetailRepository;
 import com.example.demo.repositories.UserRepository;

@@ -2,8 +2,8 @@ package com.example.demo.services;
 
 import com.example.demo.dto.store.SalesReportReqDto;
 import com.example.demo.dto.store.SalesReportResDto;
-import com.example.demo.entities.SalesReport;
-import com.example.demo.entities.Store;
+import com.example.demo.entities.store.SalesReport;
+import com.example.demo.entities.store.Store;
 import com.example.demo.repositories.SalesReportRepository;
 import com.example.demo.repositories.StoreRepository;
 

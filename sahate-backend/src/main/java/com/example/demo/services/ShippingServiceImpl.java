@@ -9,9 +9,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.order.ShippingReqDto;
 import com.example.demo.dto.order.ShippingResDto;
-import com.example.demo.entities.Expedition;
-import com.example.demo.entities.Order;
-import com.example.demo.entities.Shipping;
+import com.example.demo.entities.order.Order;
+import com.example.demo.entities.order.Shipping;
+import com.example.demo.entities.store.Expedition;
 import com.example.demo.repositories.ExpeditionRepository;
 import com.example.demo.repositories.OrderRepository;
 import com.example.demo.repositories.ShippingRepository;

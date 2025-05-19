@@ -1,6 +1,6 @@
-package com.example.demo.entities;
+package com.example.demo.entities.product;
 
-import java.time.LocalDate;
+import com.example.demo.entities.store.Store;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,28 +17,26 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "product_name")
+    private String productName;
 
-    @Column(name = "place_birth")
-    private String placeBirth;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "time_birth")
-    private LocalDate timeBirth;
+    @Column(name = "weight")
+    private Integer weight;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "cover_image")
+    private String coverImage;
 
-    @Column(name = "number_phone")
-    private String numberPhone;
-
+    // store id FK
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "store_id", nullable = false)
+    private Store store;
 }

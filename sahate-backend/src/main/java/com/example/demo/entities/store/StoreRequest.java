@@ -1,6 +1,8 @@
-package com.example.demo.entities;
+package com.example.demo.entities.store;
 
 import java.time.LocalDateTime;
+
+import com.example.demo.entities.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,24 +18,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductReview {
+public class StoreRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long rating;
-    private String review;
+    private String storeName;
+    private String status;
     private LocalDateTime date;
-
-     //Fk to product
-    // Fk to user
-     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private Customer customer;
-
-
+    private User user;
 
 }

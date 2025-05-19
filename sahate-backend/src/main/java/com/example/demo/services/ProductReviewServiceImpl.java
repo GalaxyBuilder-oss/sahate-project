@@ -10,9 +10,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.product.ProductReviewReqDto;
 import com.example.demo.dto.product.ProductReviewResDto;
-import com.example.demo.entities.Customer;
-import com.example.demo.entities.Product;
-import com.example.demo.entities.ProductReview;
+import com.example.demo.entities.customer.Customer;
+import com.example.demo.entities.product.Product;
+import com.example.demo.entities.product.ProductReview;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.repositories.ProductRepository;
 import com.example.demo.repositories.ProductReviewRepository;
