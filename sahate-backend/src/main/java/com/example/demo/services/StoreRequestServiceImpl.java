@@ -53,7 +53,7 @@ public class StoreRequestServiceImpl implements StoreRequestService {
                 throw new RuntimeException("Store request not found");
             }
             return toDto(storeRequest);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
     }
@@ -110,7 +110,7 @@ public class StoreRequestServiceImpl implements StoreRequestService {
             storeRequest.setDate(LocalDateTime.now()); // perbarui waktu terakhir update status
 
             return toDto(storeRequestRepository.save(storeRequest));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             throw new RuntimeException("Failed to update store request status: " + e.getMessage(), e);
         }
     }
