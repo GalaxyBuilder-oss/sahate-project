@@ -15,6 +15,7 @@ import com.example.demo.dto.product.ColorReqDto;
 import com.example.demo.services.ColorService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/color")
@@ -28,7 +29,7 @@ public class ColorController {
     public ResponseEntity<Object> add(@RequestBody ColorReqDto dto) {
         try {
             return ResponseEntity.ok(colorService.create(dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -37,7 +38,7 @@ public class ColorController {
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ColorReqDto dto) {
         try {
             return ResponseEntity.ok(colorService.update(id, dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -47,7 +48,7 @@ public class ColorController {
         try {
             colorService.delete(id);
             return ResponseEntity.ok().body("Color deleted");
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -56,7 +57,7 @@ public class ColorController {
     public ResponseEntity<Object> findById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(colorService.findById(id));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -65,7 +66,7 @@ public class ColorController {
     public ResponseEntity<Object> findAll() {
         try {
             return ResponseEntity.ok(colorService.findAll());
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

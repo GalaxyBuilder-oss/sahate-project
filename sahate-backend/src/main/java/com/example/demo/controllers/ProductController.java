@@ -15,6 +15,7 @@ import com.example.demo.dto.product.ProductReqDto;
 import com.example.demo.services.ProductService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/product")
@@ -28,7 +29,7 @@ public class ProductController {
     public ResponseEntity<Object> add(@RequestBody ProductReqDto dto) {
         try {
             return ResponseEntity.ok(productService.create(dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -37,7 +38,7 @@ public class ProductController {
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ProductReqDto dto) {
         try {
             return ResponseEntity.ok(productService.update(id, dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -47,7 +48,7 @@ public class ProductController {
         try {
             productService.delete(id);
             return ResponseEntity.ok().body("Product deleted");
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -56,7 +57,7 @@ public class ProductController {
     public ResponseEntity<Object> findById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(productService.findById(id));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -65,7 +66,7 @@ public class ProductController {
     public ResponseEntity<Object> findAll() {
         try {
             return ResponseEntity.ok(productService.findAll());
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

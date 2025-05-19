@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/product-review")
@@ -23,7 +24,7 @@ public class ProductReviewController {
     public ResponseEntity<Object> add(@RequestBody ProductReviewReqDto dto) {
         try {
             return ResponseEntity.ok(productReviewService.create(dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -32,7 +33,7 @@ public class ProductReviewController {
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ProductReviewReqDto dto) {
         try {
             return ResponseEntity.ok(productReviewService.update(id, dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -42,7 +43,7 @@ public class ProductReviewController {
         try {
             productReviewService.delete(id);
             return ResponseEntity.ok("Product review deleted");
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -51,7 +52,7 @@ public class ProductReviewController {
     public ResponseEntity<Object> findById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(productReviewService.findById(id));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -60,7 +61,7 @@ public class ProductReviewController {
     public ResponseEntity<Object> findAll() {
         try {
             return ResponseEntity.ok(productReviewService.findAll());
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

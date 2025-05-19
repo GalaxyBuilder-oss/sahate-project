@@ -1,5 +1,12 @@
 package com.example.demo.services;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.example.demo.dto.order.ShippingReqDto;
 import com.example.demo.dto.order.ShippingResDto;
 import com.example.demo.entities.Expedition;
@@ -8,13 +15,6 @@ import com.example.demo.entities.Shipping;
 import com.example.demo.repositories.ExpeditionRepository;
 import com.example.demo.repositories.OrderRepository;
 import com.example.demo.repositories.ShippingRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.util.List;
 
 @Service
 public class ShippingServiceImpl implements ShippingService {
@@ -45,8 +45,8 @@ public class ShippingServiceImpl implements ShippingService {
         Expedition expedition = expeditionRepository.findById(dto.getExpeditionId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Expedition not found"));
 
-//        existing.setOrder(order);
-//        existing.setExpedition(expedition);
+        existing.setOrder(order);
+        existing.setExpedition(expedition);
         existing.setPostage(dto.getPostage());
         existing.setStatus(dto.getStatus());
         existing.setShippingAddress(dto.getShippingAddress());
@@ -82,8 +82,8 @@ public class ShippingServiceImpl implements ShippingService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Expedition not found"));
 
         Shipping shipping = new Shipping();
-//        shipping.setOrder(order);
-//        shipping.setExpedition(expedition);
+        shipping.setOrder(order);
+        shipping.setExpedition(expedition);
         shipping.setPostage(dto.getPostage());
         shipping.setStatus(dto.getStatus());
         shipping.setShippingAddress(dto.getShippingAddress());
@@ -94,8 +94,8 @@ public class ShippingServiceImpl implements ShippingService {
     private ShippingResDto toDto(Shipping shipping) {
         ShippingResDto dto = new ShippingResDto();
         dto.setId(shipping.getId());
-//        dto.setOrderId(shipping.getOrder().getId());
-//        dto.setExpeditionId(shipping.getExpedition().getId());
+        dto.setOrderId(shipping.getOrder().getId());
+        dto.setExpeditionId(shipping.getExpedition().getId());
         dto.setPostage(shipping.getPostage());
         dto.setStatus(shipping.getStatus());
         dto.setShippingAddress(shipping.getShippingAddress());

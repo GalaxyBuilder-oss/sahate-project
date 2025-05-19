@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.customer.CustomerReqDto;
-import com.example.demo.services.CustomerService;
+import com.example.demo.dto.store.ExpeditionReqDto;
+import com.example.demo.services.ExpeditionService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,17 +11,17 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/customer")
-@Tag(name = "Customer")
-public class CustomerController {
+@RequestMapping("/api/expedition")
+@Tag(name = "Expedition")
+public class ExpeditionController {
 
     @Autowired
-    private CustomerService customerService;
+    private ExpeditionService expeditionService;
 
     @GetMapping()
     public ResponseEntity<Object> getAll() {
         try {
-            return ResponseEntity.ok(customerService.findAll());
+            return ResponseEntity.ok(expeditionService.findAll());
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -31,7 +31,7 @@ public class CustomerController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> getById(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(customerService.findById(id));
+            return ResponseEntity.ok(expeditionService.findById(id));
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -39,9 +39,9 @@ public class CustomerController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> create(@RequestBody CustomerReqDto dto) {
+    public ResponseEntity<Object> create(@RequestBody ExpeditionReqDto dto) {
         try {
-            return ResponseEntity.ok(customerService.create(dto));
+            return ResponseEntity.ok(expeditionService.create(dto));
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -49,9 +49,9 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody CustomerReqDto dto) {
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ExpeditionReqDto dto) {
         try {
-            return ResponseEntity.ok(customerService.update(id, dto));
+            return ResponseEntity.ok(expeditionService.update(id, dto));
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class CustomerController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
-            customerService.delete(id);
+            expeditionService.delete(id);
             return ResponseEntity.ok().build();
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());

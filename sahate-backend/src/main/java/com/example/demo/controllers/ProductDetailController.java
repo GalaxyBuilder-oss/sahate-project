@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/product-detail")
@@ -23,7 +24,7 @@ public class ProductDetailController {
     public ResponseEntity<Object> add(@RequestBody ProductDetailReqDto dto) {
         try {
             return ResponseEntity.ok(productDetailService.create(dto));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -51,7 +52,7 @@ public class ProductDetailController {
     public ResponseEntity<Object> findById(@PathVariable Long id) {
     try {
         return ResponseEntity.ok(productDetailService.findById(id));
-    } catch (Exception e) {
+    } catch (ResponseStatusException e) {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
     }
@@ -60,7 +61,7 @@ public class ProductDetailController {
     public ResponseEntity<Object> findAll() {
         try {
             return ResponseEntity.ok(productDetailService.findAll());
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

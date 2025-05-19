@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.customer.CustomerReqDto;
-import com.example.demo.services.CustomerService;
+import com.example.demo.dto.ChatReqDto;
+import com.example.demo.services.ChatService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,17 +11,17 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/customer")
-@Tag(name = "Customer")
-public class CustomerController {
+@RequestMapping("/api/chat")
+@Tag(name = "Chat")
+public class ChatController {
 
     @Autowired
-    private CustomerService customerService;
+    private ChatService chatService;
 
     @GetMapping()
     public ResponseEntity<Object> getAll() {
         try {
-            return ResponseEntity.ok(customerService.findAll());
+            return ResponseEntity.ok(chatService.findAll());
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -31,7 +31,7 @@ public class CustomerController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> getById(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(customerService.findById(id));
+            return ResponseEntity.ok(chatService.findById(id));
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -39,9 +39,9 @@ public class CustomerController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> create(@RequestBody CustomerReqDto dto) {
+    public ResponseEntity<Object> create(@RequestBody ChatReqDto dto) {
         try {
-            return ResponseEntity.ok(customerService.create(dto));
+            return ResponseEntity.ok(chatService.create(dto));
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -49,9 +49,9 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody CustomerReqDto dto) {
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ChatReqDto dto) {
         try {
-            return ResponseEntity.ok(customerService.update(id, dto));
+            return ResponseEntity.ok(chatService.update(id, dto));
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class CustomerController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
-            customerService.delete(id);
+            chatService.delete(id);
             return ResponseEntity.ok().build();
         } catch (ResponseStatusException e) {
             log.error(e.getMessage());
