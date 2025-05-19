@@ -13,9 +13,8 @@ import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.repositories.StoreRepository;
 import com.example.demo.repositories.StoreReviewRepository;
 
-public class StoreReviewServiceImpl implements StoreReviewService{
-    
-    
+public class StoreReviewServiceImpl implements StoreReviewService {
+
     @Autowired
     private StoreReviewRepository storeReviewRepository;
     @Autowired
@@ -32,6 +31,7 @@ public class StoreReviewServiceImpl implements StoreReviewService{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
+
     @Override
     public StoreReviewResDto update(Long id, StoreReviewReqDto dto) {
         try {
@@ -41,14 +41,15 @@ public class StoreReviewServiceImpl implements StoreReviewService{
             }
             storeReview.setRating(dto.getRating());
             storeReview.setReview(dto.getReview());
-//            storeReview.setCustomer(customerRepository.findById(dto.getCustomerId()).orElse(null));
+            storeReview.setCustomer(customerRepository.findById(dto.getCustomerId()).orElse(null));
             storeReview.setDate(dto.getDate());
-//            storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
+            storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
             return toDto(storeReviewRepository.save(storeReview));
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
+
     @Override
     public void delete(Long id) {
         try {
@@ -70,6 +71,7 @@ public class StoreReviewServiceImpl implements StoreReviewService{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
         }
     }
+
     @Override
     public List<StoreReviewResDto> findAll() {
         try {
@@ -83,24 +85,24 @@ public class StoreReviewServiceImpl implements StoreReviewService{
 
     private StoreReview fromDto(StoreReviewReqDto dto) {
         StoreReview storeReview = new StoreReview();
-        
+
         storeReview.setRating(dto.getRating());
         storeReview.setReview(dto.getReview());
-//        storeReview.setCustomer(customerRepository.findById(dto.getCustomerId()).orElse(null));
+        storeReview.setCustomer(customerRepository.findById(dto.getCustomerId()).orElse(null));
         storeReview.setDate(dto.getDate());
-//        storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
+        storeReview.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
         return storeReview;
-    } 
+    }
 
     private StoreReviewResDto toDto(StoreReview storeReview) {
         StoreReviewResDto dto = new StoreReviewResDto();
-        
+
         dto.setId(storeReview.getId());
         dto.setRating(storeReview.getRating());
         dto.setReview(storeReview.getReview());
         dto.setDate(storeReview.getDate());
-//        dto.setStoreId(storeReview.getStore().getId());
-//        dto.setCustomerId(storeReview.getCustomer().getId());
+        dto.setStoreId(storeReview.getStore().getId());
+        dto.setCustomerId(storeReview.getCustomer().getId());
         return dto;
     }
 }

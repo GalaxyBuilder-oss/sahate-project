@@ -46,8 +46,8 @@ public class OrderServiceImpl implements OrderService {
             order.setDeliveryStatus(dto.getDeliveryStatus());
             order.setPurchaseDate(dto.getPurchaseDate());
             order.setTotalPrice(dto.getTotalPrice());
-//            order.setBuyer(customerRepository.findById(dto.getBuyerId()).orElse(null));
-//            order.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
+           order.setBuyer(customerRepository.findById(dto.getBuyerId()).orElse(null));
+           order.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
             return toDto(orderRepository.save(order));
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);

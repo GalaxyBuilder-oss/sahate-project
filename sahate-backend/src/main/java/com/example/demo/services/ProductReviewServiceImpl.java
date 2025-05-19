@@ -1,5 +1,13 @@
 package com.example.demo.services;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.example.demo.dto.product.ProductReviewReqDto;
 import com.example.demo.dto.product.ProductReviewResDto;
 import com.example.demo.entities.Customer;
@@ -8,14 +16,6 @@ import com.example.demo.entities.ProductReview;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.repositories.ProductRepository;
 import com.example.demo.repositories.ProductReviewRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class ProductReviewServiceImpl implements ProductReviewService {
@@ -48,8 +48,8 @@ public class ProductReviewServiceImpl implements ProductReviewService {
 
         existing.setRating(dto.getRating());
         existing.setReview(dto.getReview());
-//        existing.setProduct(product);
-//        existing.setCustomer(customer);
+       existing.setProduct(product);
+       existing.setCustomer(customer);
 
         return toDto(productReviewRepository.save(existing));
     }
@@ -83,8 +83,8 @@ public class ProductReviewServiceImpl implements ProductReviewService {
         ProductReview review = new ProductReview();
         review.setRating(dto.getRating());
         review.setReview(dto.getReview());
-//        review.setProduct(product);
-//        review.setCustomer(customer);
+       review.setProduct(product);
+       review.setCustomer(customer);
         return review;
     }
 
@@ -94,8 +94,8 @@ public class ProductReviewServiceImpl implements ProductReviewService {
         dto.setRating(review.getRating());
         dto.setReview(review.getReview());
         dto.setDate(review.getDate());
-//        dto.setProductId(review.getProduct().getId());
-//        dto.setCustomerId(review.getCustomer().getId());
+       dto.setProductId(review.getProduct().getId());
+       dto.setCustomerId(review.getCustomer().getId());
         return dto;
     }
 }
