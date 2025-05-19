@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.store.StoreReviewReqDto;
@@ -13,8 +14,11 @@ import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.repositories.StoreRepository;
 import com.example.demo.repositories.StoreReviewRepository;
 
-public class StoreReviewServiceImpl implements StoreReviewService {
 
+@Service
+public class StoreReviewServiceImpl implements StoreReviewService{
+    
+    
     @Autowired
     private StoreReviewRepository storeReviewRepository;
     @Autowired

@@ -16,12 +16,13 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-
     private Long id;
 
     private String email;
 
     private String password;
+
+    private String role;
     
     @Column(name = "verification_status")
     private boolean status = false;
