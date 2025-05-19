@@ -71,7 +71,6 @@ public class StoreRequestServiceImpl implements StoreRequestService {
 
     private StoreRequest fromDto(StoreRequestReqDto dto) {
         StoreRequest storeRequest = new StoreRequest();
-        ;
         storeRequest.setStoreName(dto.getStoreName());
         storeRequest.setUser(userRepository.findById(dto.getUserId()).orElse(null));
         storeRequest.setStatus(dto.getStatus());
