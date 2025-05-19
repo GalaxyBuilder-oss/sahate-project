@@ -39,7 +39,7 @@ public class StoreServiceImpl implements StoreService {
             Store store = fromDto(dto);
             store.setUser(user); // relasi user-store
             return toDto(storeRepository.save(store));
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error creating store", e);
         }
     }
