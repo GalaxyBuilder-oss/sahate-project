@@ -2,8 +2,7 @@ package com.example.demo.services.store;
 
 
 
-import com.example.demo.repositories.UserRepository;
-import com.example.demo.repositories.store.StoreRepository;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,9 +13,12 @@ import com.example.demo.dto.store.StoreReqDto;
 import com.example.demo.dto.store.StoreResDto;
 import com.example.demo.entities.User;
 import com.example.demo.entities.store.Store;
+import com.example.demo.repositories.UserRepository;
+import com.example.demo.repositories.store.StoreRepository;
 
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class StoreServiceImpl implements StoreService {
 
@@ -29,6 +31,7 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public StoreResDto create(StoreReqDto dto) {
         try {
+            log.info(dto.toString());
             User user = userRepository.findById(dto.getUserId())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found"));
 

@@ -3,7 +3,6 @@ package com.example.demo.services.store;
 import java.time.LocalDateTime;
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -11,8 +10,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demo.dto.store.StoreRequestReqDto;
 import com.example.demo.dto.store.StoreRequestResDto;
+import com.example.demo.entities.store.Store;
 import com.example.demo.entities.store.StoreRequest;
 import com.example.demo.repositories.UserRepository;
+import com.example.demo.repositories.store.StoreRepository;
 import com.example.demo.repositories.store.StoreRequestRepository;
 
 @Service
@@ -20,6 +21,9 @@ public class StoreRequestServiceImpl implements StoreRequestService {
 
     @Autowired
     private StoreRequestRepository storeRequestRepository;
+
+    @Autowired
+    private StoreRepository storeRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -71,8 +75,10 @@ public class StoreRequestServiceImpl implements StoreRequestService {
 
     private StoreRequest fromDto(StoreRequestReqDto dto) {
         StoreRequest storeRequest = new StoreRequest();
+        Store store = storeRepository.findById(dto.getUserId()).orElse(null);
         storeRequest.setStoreName(dto.getStoreName());
         storeRequest.setUser(userRepository.findById(dto.getUserId()).orElse(null));
+        store.setAccessStatus(dto.getStatus());
         storeRequest.setStatus(dto.getStatus());
         storeRequest.setDate(dto.getDate());
         return storeRequest;
