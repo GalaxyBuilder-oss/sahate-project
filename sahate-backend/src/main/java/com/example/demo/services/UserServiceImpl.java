@@ -31,6 +31,8 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
+    @Override
     public UserResDto registerAdmin(UserReqDto dto) {
         dto.setRole("ADMIN");
         dto.setStatus(true);
@@ -60,7 +62,7 @@ public class UserServiceImpl implements UserService {
                 throw new RuntimeException("User is not active");
             }
             return toDto(user);
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             throw new RuntimeException("Login failed", e);
         }
     }

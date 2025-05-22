@@ -2,7 +2,7 @@ package com.example.demo.entities.store;
 
 import java.time.LocalDateTime;
 
-import com.example.demo.entities.order.Order;
+import com.example.demo.entities.orders.Order;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
