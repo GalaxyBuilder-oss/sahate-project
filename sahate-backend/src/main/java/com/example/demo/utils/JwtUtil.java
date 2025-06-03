@@ -6,7 +6,9 @@ import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -14,12 +16,15 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class JwtUtil {
 
-    private final String secretKey = "accessToken";
+    private final String secretKey = "sahate2024";
     private final JwtParser jwtParser;
-    private final Long accessTokenExpireTime = 1000L * 60L * 60L; // 1 hour
 
-    public JwtUtil(JwtParser jwtParser) {
-        this.jwtParser = jwtParser;
+    public JwtUtil() {
+        try {
+            this.jwtParser = Jwts.parser().setSigningKey(secretKey);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getLocalizedMessage());
+        }
     }
 
     public String generateToken(User user){
@@ -27,6 +32,8 @@ public class JwtUtil {
         claims.put("email", user.getEmail());
 
         Date tokenCreateTime = new Date();
+        // 1 hour
+        long accessTokenExpireTime = 1000L * 60L * 60L;
         Date tokenExpireTime = new Date(tokenCreateTime.getTime() + TimeUnit.MINUTES.toMillis(accessTokenExpireTime));
 
         return Jwts.builder()
@@ -45,7 +52,7 @@ public class JwtUtil {
             String token = resolveToken(request);
             return getClaims(token);
         } catch (Exception e) {
-            return null;
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getLocalizedMessage());
         }
     }
 
