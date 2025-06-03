@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-			<version>3.4.5</version> <!-- Sesuaikan dengan versi Spring Boot yang Anda gunakan -->
+			<!-- <version>3.4.5</version> Sesuaikan dengan versi Spring Boot yang Anda gunakan -->
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
