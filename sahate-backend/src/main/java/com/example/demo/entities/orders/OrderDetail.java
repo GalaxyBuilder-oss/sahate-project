@@ -1,6 +1,6 @@
-package com.example.demo.entities;
+package com.example.demo.entities.orders;
 
-import java.time.LocalDateTime;
+import com.example.demo.entities.product.ProductDetail;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,27 +13,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Chat {
+public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    private String message;
+    private Integer qty;
 
-
-    @Column(name = "send_date_time")
-    private LocalDateTime sendDateTime;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id" , nullable = false)
-    private User sender;
+    @Column(name = "unit_price")
+    private Integer unitPrice;
 
     @ManyToOne
-    @JoinColumn(name = "receiver_id", nullable = false)
-    private User receiver;
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
 
+    @ManyToOne
+    @JoinColumn(name = "product_detail_id", nullable = false)
+    private ProductDetail productDetail;
+    // butuh koreksi
 }

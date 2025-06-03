@@ -35,6 +35,8 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
+    @Override
     public UserResDto registerAdmin(UserReqDto dto) {
         dto.setRole("ADMIN");
         dto.setStatus(true);
@@ -64,7 +66,7 @@ public class UserServiceImpl implements UserService {
                 throw new RuntimeException("User is not active");
             }
             return toDto(user);
-        } catch (Exception e) {
+        } catch (ResponseStatusException e) {
             throw new RuntimeException("Login failed", e);
         }
     }
@@ -122,7 +124,9 @@ public class UserServiceImpl implements UserService {
 
     private UserResDto toDto(User user) {
         UserResDto dto = new UserResDto();
+        dto.setId("Not published");
         dto.setStatus(user.isStatus());
+        dto.setPassword("HIDDEN");
         dto.setRole(user.getRole());
         dto.setEmail(user.getEmail());
         return dto;

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserResDto {
-    private Long id;
+    private String id;
     private String email;
     private String password;
     private String role;
