@@ -14,6 +14,9 @@ import com.example.demo.repositories.customer.CustomerRepository;
 import com.example.demo.repositories.orders.OrderRepository;
 import com.example.demo.repositories.store.StoreRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
     @Autowired
@@ -28,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderResDto create(OrderReqDto dto) {
         try {
+            log.info(dto.toString());
             Order order = fromDto(dto);
             return toDto(orderRepository.save(order));
         } catch (Exception e) {
@@ -90,8 +94,8 @@ public class OrderServiceImpl implements OrderService {
         order.setDeliveryStatus(dto.getDeliveryStatus());
         order.setPurchaseDate(dto.getPurchaseDate());
         order.setTotalPrice(dto.getTotalPrice());
-//        order.setBuyer(customerRepository.findById(dto.getBuyerId()).orElse(null));
-//        order.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
+       order.setBuyer(customerRepository.findById(dto.getBuyerId()).orElse(null));
+       order.setStore(storeRepository.findById(dto.getStoreId()).orElse(null));
         return order;
     }
 
@@ -102,8 +106,8 @@ public class OrderServiceImpl implements OrderService {
         dto.setDeliveryStatus(save.getDeliveryStatus());
         dto.setPurchaseDate(save.getPurchaseDate());
         dto.setTotalPrice(save.getTotalPrice());
-//        dto.setBuyerId(save.getBuyer().getId());
-//        dto.setStoreId(save.getStore().getId());
+       dto.setBuyerId(save.getBuyer().getId());
+       dto.setStoreId(save.getStore().getId());
         return dto;
     }
 
