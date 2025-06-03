@@ -13,6 +13,9 @@ import com.example.demo.entities.product.Product;
 import com.example.demo.repositories.product.ProductRepository;
 import com.example.demo.repositories.store.StoreRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -26,6 +29,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductResDto create(ProductReqDto dto) {
 
         try {
+            log.info(dto.toString());
             Product product = fromDto(dto);
             return toDto(productRepository.save(product));
         } catch (Exception e) {
