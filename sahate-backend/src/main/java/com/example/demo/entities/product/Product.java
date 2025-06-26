@@ -38,5 +38,5 @@ public class Product {
     // store id FK
     @OneToOne
     @JoinColumn(name = "store_id", nullable = false)
-    private Store store;
+    private Store store; 
 }

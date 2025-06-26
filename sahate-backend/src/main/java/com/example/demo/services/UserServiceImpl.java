@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -16,6 +17,9 @@ import com.example.demo.repositories.UserRepository;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserResDto create(UserReqDto dto) {
@@ -55,7 +59,7 @@ public class UserServiceImpl implements UserService {
         try {
             User user = userRepository.findByEmail(email)
                     .orElseThrow(() -> new RuntimeException("Email not registered"));
-            if (!user.getPassword().equals(password)) {
+            if (!passwordEncoder.matches(password, user.getPassword())) {
                 throw new RuntimeException("Incorrect password");
             }
             if (!user.isStatus()) {
@@ -73,7 +77,7 @@ public class UserServiceImpl implements UserService {
             User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
             user.setStatus(dto.isStatus());
             user.setEmail(dto.getEmail());
-            user.setPassword(dto.getPassword());
+            user.setPassword(passwordEncoder.encode(dto.getPassword()));
             return toDto(userRepository.save(user));
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is something wrong", e);
@@ -114,7 +118,7 @@ public class UserServiceImpl implements UserService {
         user.setStatus(dto.isStatus());
         user.setRole(dto.getRole() != null ? dto.getRole() : "USER");
         user.setEmail(dto.getEmail());
-        user.setPassword(dto.getPassword());
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
         return user;
     }
 
