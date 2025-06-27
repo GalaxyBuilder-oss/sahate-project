@@ -4,9 +4,12 @@ import java.time.LocalDateTime;
 
 import com.example.demo.entities.customer.Customer;
 import com.example.demo.entities.store.Store;
+import com.example.demo.enums.OrderStatus;
+import com.example.demo.enums.PaymentStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -39,6 +42,15 @@ public class Order {
 
     @Column(name = "purchase_date")
     private LocalDateTime purchaseDate;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus paymentStatus = PaymentStatus.PENDING; // PENDING, SUCCESS, FAILED
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus = OrderStatus.PENDING; // PENDING, PROCESSING, SHIPPED, COMPLETED
+
+    private String midtransTransactionToken; // Untuk menyimpan token/snap URL dari Midtrans
+
 
     //buyer id FK (Users)
     // store id FK (Users)

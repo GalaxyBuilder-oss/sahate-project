@@ -12,6 +12,11 @@ public class PaymentResDto {
     private String status;
     private LocalDateTime date;
 
+    private String redirectUrl; // Untuk kirim URL pembayaran ke client
+
+    
+
+
     // fk orders //
     private Long orderId;
 

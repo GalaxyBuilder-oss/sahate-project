@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import com.example.demo.entities.orders.Order;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +26,10 @@ public class Payment {
     private Long amount;
     private String status;
     private LocalDateTime date;
-
+    @Column(name = "transaction_token")
+    private String transactionToken; // Untuk simpan redirect URL dari Midtrans
+    
+   
     // fk orders //
     @OneToOne
     @JoinColumn(name = "order_id", nullable = false)
